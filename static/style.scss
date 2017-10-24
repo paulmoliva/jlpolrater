@@ -1,0 +1,160 @@
+$alaska-blue: #01004A;
+
+
+ol li:first-child {
+    font-size: 23px;
+    color: blue;
+}
+
+.row {
+  padding-right: 0px;
+  margin-right: 0px;
+}
+
+body {
+    background: url("alaskacover.png") no-repeat 0% 0% fixed;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
+  }
+
+h1, h2, h3, h4 {
+  text-align: center;
+  color: black;
+}
+
+#login_pw, #login_email, #login_submit {
+    display: inline-block;
+    text-align: center;
+    }
+
+#ratings{
+  text-align: center;
+  ol {
+    display: inline-block;
+    font-weight: bolder;
+    color: #FFF700
+    }
+  a {
+    color: #01004A;
+    }
+  }
+
+.actions{
+  margin: 5px;
+
+  input[type=button], input[type=submit] {
+    background-color: #01004A;
+    border: none;
+    color: yellow;
+    padding: 8px 16px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+}
+
+.field {
+  padding-top: 5px;
+  padding-bottom: 2px;
+
+  label {
+    margin-bottom: 0px;
+    font-weight: bolder;
+  }
+
+  input {
+    margin-top: 0px;
+    margin-bottom: 4px;
+    border-radius: 4px;
+  }
+}
+
+.nav-item {
+  color:white;
+}
+
+.flash {
+  background-color: rgba(255, 247, 0, 0.85);
+  text-align: center;
+}
+
+.thumbnail {
+    width: 150px;
+    height: 230px;
+    overflow: hidden;
+    position: relative;
+    display: block;
+    margin:auto;
+    padding: 5px;
+    img {
+      position: absolute;
+      top: -9999px;
+      bottom: -9999px;
+      left: -9999px;
+      right: -9999px;
+      margin: auto;
+
+      padding: 10px;
+    }
+}
+
+
+/* Sticky footer position and size
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 205px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 205px;
+}
+
+/* Taller footer on small screens */
+@media (max-width: 34em) {
+    body {
+      margin-bottom: 500px;
+    }
+    .footer {
+      height: 500px;
+    }
+}
+
+/* Sticky footer style and color
+-------------------------------------------------- */
+footer {
+  border-top: dashed;
+  border-color: #01004A;
+  padding-top: 30px;
+  background-color: rgba(255, 247, 0, 0.85);
+  color: $alaska-blue;
+}
+
+footer a {
+  // color: #999;
+  text-decoration:none;
+}
+
+footer a:hover, footer a:focus {
+  // color: #aaa;
+  // text-decoration:none;
+  border-bottom:1px dotted #999;
+}
+
+footer .form-control {
+    background-color: #1f2022;
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
+    border: none;
+    resize: none;
+    color: #d1d2d2;
+    padding: 0.7em 1em;
+}
