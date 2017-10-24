@@ -32,7 +32,8 @@ class App extends React.Component{
   requestPairToRate(){
     $.ajax({
       url: '/requestPair',
-      success: resp => {
+      success: response => {
+        const resp = JSON.parse(response);
         this.setState({
           politicianOne: resp.politicianOne,
           politicianTwo: resp.politicianTwo,
@@ -63,6 +64,16 @@ class App extends React.Component{
       return (
         <div>
           <p>Hey, {this.state.user.name}</p>
+          <h1>Who is {this.state.category.title}?</h1>
+          <h2>{this.state.politicianOne.name}</h2>
+          <div className="thumbnail">
+            <img src={`${this.state.politicianOne.image_url}`} />
+          </div>
+          <h1>OR</h1>
+          <h2>{this.state.politicianTwo.name}</h2>
+          <div className="thumbnail">
+            <img src={`${this.state.politicianTwo.image_url}`} />
+          </div>
         </div>
       )
     } else {

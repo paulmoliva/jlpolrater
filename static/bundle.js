@@ -1082,7 +1082,8 @@ var App = function (_React$Component) {
 
       _jquery2.default.ajax({
         url: '/requestPair',
-        success: function success(resp) {
+        success: function success(response) {
+          var resp = JSON.parse(response);
           _this3.setState({
             politicianOne: resp.politicianOne,
             politicianTwo: resp.politicianTwo,
@@ -1128,6 +1129,38 @@ var App = function (_React$Component) {
             null,
             'Hey, ',
             this.state.user.name
+          ),
+          _react2.default.createElement(
+            'h1',
+            null,
+            'Who is ',
+            this.state.category.title,
+            '?'
+          ),
+          _react2.default.createElement(
+            'h2',
+            null,
+            this.state.politicianOne.name
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'thumbnail' },
+            _react2.default.createElement('img', { src: '' + this.state.politicianOne.image_url })
+          ),
+          _react2.default.createElement(
+            'h1',
+            null,
+            'OR'
+          ),
+          _react2.default.createElement(
+            'h2',
+            null,
+            this.state.politicianTwo.name
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'thumbnail' },
+            _react2.default.createElement('img', { src: '' + this.state.politicianTwo.image_url })
           )
         );
       } else {

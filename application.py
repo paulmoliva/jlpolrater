@@ -1,10 +1,12 @@
 import flask
 import os
 import json
+import random
+
 from flask_cors import CORS
 
 from database import db
-from models import user
+from models import politician, category, user
 
 application = flask.Flask(__name__)
 
@@ -39,6 +41,22 @@ def login():
         db.session.add(the_user)
         db.session.commit()
     return json.dumps(the_user.as_dict())
+
+NUM_POLS = 60
+NUM_CATS = 16
+
+
+@application.route('/requestPair')
+def requestPair():
+    pol_ids = random.sample(range(1, NUM_POLS), 2)
+    pol_one_id = pol_ids[0]
+    pol_two_id = pol_ids[1]
+    cat_id = random.sample(range(1, NUM_CATS), 1)[0]
+    return json.dumps({
+        'politicianOne': politician.Politician.query.get(pol_one_id).as_dict(),
+        'politicianTwo': politician.Politician.query.get(pol_two_id).as_dict(),
+        'category': category.Category.query.get(cat_id).as_dict()
+    })
 
 
 if __name__ == '__main__':
