@@ -7,4 +7,6 @@ class Rating(db.Model, base_model.BaseModel):
     id = db.Column(db.Integer, primary_key=True)
     winner_id = db.Column(db.Integer, db.ForeignKey('politicians.id'), index=True, nullable=True)
     loser_id = db.Column(db.Integer, db.ForeignKey('politicians.id'), index=True, nullable=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('politicians.id'), index=True, nullable=True)
+    category_id = db.Column(db.Integer, db.ForeignKey('politicians.id'), index=True, nullable=True)
 

@@ -8,8 +8,20 @@ class App extends React.Component{
     super(props);
     this.state = {
       user: null,
-      loading: false
+      loading: false,
+      results: false
     }
+  }
+
+  componentDidMount(){
+    $.ajax({
+      url: '/categories',
+      success: resp => {
+        this.setState({
+          categories: JSON.parse(resp)
+        })
+      }
+    })
   }
 
   responseFacebook(response){
@@ -38,6 +50,7 @@ class App extends React.Component{
           politicianOne: resp.politicianOne,
           politicianTwo: resp.politicianTwo,
           category: resp.category,
+          shownCategory: 1,
           loading: false
         })
       }
@@ -59,20 +72,117 @@ class App extends React.Component{
     )
   }
 
+  makeRating(rating){
+    $.ajax({
+      url: '/rating',
+      method: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify(rating)
+    });
+    this.setState({
+      loading: true
+    });
+    this.requestPairToRate();
+  }
+
   showRater(){
-    if(!this.state.loading){
+    if(this.state.results && !this.state.loading){
+      return (
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center'
+        }}>
+          <h2>
+            <a href="#" onClick={() => {
+              this.setState({results: false, loading: true});
+              this.requestPairToRate();
+            }}>Rate more legislators
+            </a>
+          </h2>
+          <select
+                  value={Number(this.state.shownCategory)}
+                  onChange={e => {
+                    const categoryID = e.target.value;
+                    this.setState({
+                      loading: true
+                    });
+                    $.ajax({
+                      url: 'scores/' + categoryID,
+                      success: resp => {
+                        this.setState({
+                          scores: JSON.parse(resp),
+                          shownCategory: categoryID,
+                          loading: false
+                        })
+                      }
+                    });
+                  }}
+          >
+            {this.state.categories.map( el => {
+              return <option value={el.id}>Alaska's {el.superlative} legislators</option>
+            })}
+          </select>
+          <ol>
+            {this.state.scores.map( el => {
+              return <li>{el.name}</li>
+            })}
+          </ol>
+        </div>
+      )
+    }
+    if(!this.state.loading && !this.state.results){
       return (
         <div>
-          <p>Hey, {this.state.user.name}</p>
+          <h2>
+            <a href="#" onClick={() => {
+              this.setState({results: true, loading: true});
+              $.ajax({
+                url: 'scores/' + this.state.categories[0].id,
+                success: resp => {
+                  this.setState({
+                    scores: JSON.parse(resp),
+                    loading: false
+                  })
+                }
+              });
+              }}>See results
+            </a>
+          </h2>
           <h1>Who is {this.state.category.title}?</h1>
+          <p>(Click photo to choose)</p>
           <h2>{this.state.politicianOne.name}</h2>
-          <div className="thumbnail">
-            <img src={`${this.state.politicianOne.image_url}`} />
+          <div>
+            <img
+              style={{cursor: 'pointer'}}
+              onClick={
+                () => {
+                  this.makeRating.bind(this)({
+                    winner: this.state.politicianOne,
+                    loser: this.state.politicianTwo,
+                    category: this.state.category,
+                    user: this.state.user
+                  })
+                }
+              }
+              src={`${this.state.politicianOne.image_url}`} />
           </div>
           <h1>OR</h1>
           <h2>{this.state.politicianTwo.name}</h2>
-          <div className="thumbnail">
-            <img src={`${this.state.politicianTwo.image_url}`} />
+          <div>
+            <img
+              style={{cursor: 'pointer'}}
+              onClick={
+                () => {
+                  this.makeRating.bind(this)({
+                    winner: this.state.politicianTwo,
+                    loser: this.state.politicianOne,
+                    category: this.state.category,
+                    user: this.state.user
+                  })
+                }
+              }
+              src={`${this.state.politicianTwo.image_url}`} />
           </div>
         </div>
       )
@@ -80,7 +190,7 @@ class App extends React.Component{
       return (
         <div>
           <img src="/static/spinner.gif" />
-          <h3>Loading your politicians</h3>
+          <h3>Loading</h3>
         </div>
       )
     }
@@ -98,7 +208,8 @@ class App extends React.Component{
                   marginBottom: '5px',
                   borderStyle: 'solid',
                   borderRadius: '5px',
-                  backgroundColor: 'rgba(159,159,159, 0.85)'
+                  backgroundColor: 'rgba(159,159,159, 0.85)',
+                  padding: '7px'
                 }}
               >
               {this.state.user ? this.showRater.bind(this)() : this.promptLogin()}
