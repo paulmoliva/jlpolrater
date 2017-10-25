@@ -11444,7 +11444,7 @@ var App = function (_React$Component) {
                   loading: true
                 });
                 _jquery2.default.ajax({
-                  url: rootEndpoint + 'scores/' + categoryID,
+                  url: rootEndpoint + '/scores/' + categoryID,
                   success: function success(resp) {
                     _this5.setState({
                       scores: JSON.parse(resp),

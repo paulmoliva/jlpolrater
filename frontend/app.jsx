@@ -110,7 +110,7 @@ class App extends React.Component{
                       loading: true
                     });
                     $.ajax({
-                      url: rootEndpoint + 'scores/' + categoryID,
+                      url: rootEndpoint + '/scores/' + categoryID,
                       success: resp => {
                         this.setState({
                           scores: JSON.parse(resp),
