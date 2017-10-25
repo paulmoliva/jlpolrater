@@ -11490,7 +11490,7 @@ var App = function (_React$Component) {
               { href: '#', onClick: function onClick() {
                   _this5.setState({ results: true, loading: true });
                   _jquery2.default.ajax({
-                    url: rootEndpoint + 'scores/' + _this5.state.categories[0].id,
+                    url: rootEndpoint + '/scores/' + _this5.state.categories[0].id,
                     success: function success(resp) {
                       _this5.setState({
                         scores: JSON.parse(resp),

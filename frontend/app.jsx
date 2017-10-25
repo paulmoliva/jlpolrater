@@ -140,7 +140,7 @@ class App extends React.Component{
             <a href="#" onClick={() => {
               this.setState({results: true, loading: true});
               $.ajax({
-                url: rootEndpoint + 'scores/' + this.state.categories[0].id,
+                url: rootEndpoint + '/scores/' + this.state.categories[0].id,
                 success: resp => {
                   this.setState({
                     scores: JSON.parse(resp),
