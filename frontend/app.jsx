@@ -228,4 +228,4 @@ ReactDOM.render(
   document.getElementById('react-root')
 );
 
-const rootEndpoint = 'http://http://jlpolrater.y3rqmziwcg.us-west-2.elasticbeanstalk.com/';
+const rootEndpoint = 'http://http://jlpolrater.y3rqmziwcg.us-west-2.elasticbeanstalk.com';

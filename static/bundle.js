@@ -11609,7 +11609,7 @@ var App = function (_React$Component) {
 
 _reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('react-root'));
 
-var rootEndpoint = 'http://http://jlpolrater.y3rqmziwcg.us-west-2.elasticbeanstalk.com/';
+var rootEndpoint = 'http://http://jlpolrater.y3rqmziwcg.us-west-2.elasticbeanstalk.com';
 
 /***/ }),
 /* 19 */
