@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import FacebookLogin from 'react-facebook-login';
 import $ from 'jquery';
 
+const rootEndpoint = 'http://jlpolrater.y3rqmziwcg.us-west-2.elasticbeanstalk.com';
+
 class App extends React.Component{
   constructor(props){
     super(props);
@@ -228,4 +230,3 @@ ReactDOM.render(
   document.getElementById('react-root')
 );
 
-const rootEndpoint = 'http://jlpolrater.y3rqmziwcg.us-west-2.elasticbeanstalk.com';
