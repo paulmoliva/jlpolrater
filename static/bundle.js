@@ -11322,7 +11322,7 @@ var App = function (_React$Component) {
       var _this2 = this;
 
       _jquery2.default.ajax({
-        url: '/categories',
+        url: rootEndpoint + '/categories',
         success: function success(resp) {
           _this2.setState({
             categories: JSON.parse(resp)
@@ -11336,7 +11336,7 @@ var App = function (_React$Component) {
       var _this3 = this;
 
       _jquery2.default.ajax({
-        url: '/login',
+        url: rootEndpoint + '/login',
         method: 'POST',
         contentType: 'application/json',
         data: JSON.stringify(response),
@@ -11356,7 +11356,7 @@ var App = function (_React$Component) {
       var _this4 = this;
 
       _jquery2.default.ajax({
-        url: '/requestPair',
+        url: rootEndpoint + '/requestPair',
         success: function success(response) {
           var resp = JSON.parse(response);
           _this4.setState({
@@ -11397,7 +11397,7 @@ var App = function (_React$Component) {
     key: 'makeRating',
     value: function makeRating(rating) {
       _jquery2.default.ajax({
-        url: '/rating',
+        url: rootEndpoint + '/rating',
         method: 'POST',
         contentType: 'application/json',
         data: JSON.stringify(rating)
@@ -11442,7 +11442,7 @@ var App = function (_React$Component) {
                   loading: true
                 });
                 _jquery2.default.ajax({
-                  url: 'scores/' + categoryID,
+                  url: rootEndpoint + 'scores/' + categoryID,
                   success: function success(resp) {
                     _this5.setState({
                       scores: JSON.parse(resp),
@@ -11488,7 +11488,7 @@ var App = function (_React$Component) {
               { href: '#', onClick: function onClick() {
                   _this5.setState({ results: true, loading: true });
                   _jquery2.default.ajax({
-                    url: 'scores/' + _this5.state.categories[0].id,
+                    url: rootEndpoint + 'scores/' + _this5.state.categories[0].id,
                     success: function success(resp) {
                       _this5.setState({
                         scores: JSON.parse(resp),
@@ -11608,6 +11608,8 @@ var App = function (_React$Component) {
 }(_react2.default.Component);
 
 _reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('react-root'));
+
+var rootEndpoint = 'http://http://jlpolrater.y3rqmziwcg.us-west-2.elasticbeanstalk.com/';
 
 /***/ }),
 /* 19 */

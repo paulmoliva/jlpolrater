@@ -15,7 +15,7 @@ class App extends React.Component{
 
   componentDidMount(){
     $.ajax({
-      url: '/categories',
+      url: rootEndpoint + '/categories',
       success: resp => {
         this.setState({
           categories: JSON.parse(resp)
@@ -26,7 +26,7 @@ class App extends React.Component{
 
   responseFacebook(response){
     $.ajax({
-      url: '/login',
+      url: rootEndpoint + '/login',
       method: 'POST',
       contentType: 'application/json',
       data: JSON.stringify(response),
@@ -43,7 +43,7 @@ class App extends React.Component{
 
   requestPairToRate(){
     $.ajax({
-      url: '/requestPair',
+      url: rootEndpoint + '/requestPair',
       success: response => {
         const resp = JSON.parse(response);
         this.setState({
@@ -74,7 +74,7 @@ class App extends React.Component{
 
   makeRating(rating){
     $.ajax({
-      url: '/rating',
+      url: rootEndpoint + '/rating',
       method: 'POST',
       contentType: 'application/json',
       data: JSON.stringify(rating)
@@ -108,7 +108,7 @@ class App extends React.Component{
                       loading: true
                     });
                     $.ajax({
-                      url: 'scores/' + categoryID,
+                      url: rootEndpoint + 'scores/' + categoryID,
                       success: resp => {
                         this.setState({
                           scores: JSON.parse(resp),
@@ -138,7 +138,7 @@ class App extends React.Component{
             <a href="#" onClick={() => {
               this.setState({results: true, loading: true});
               $.ajax({
-                url: 'scores/' + this.state.categories[0].id,
+                url: rootEndpoint + 'scores/' + this.state.categories[0].id,
                 success: resp => {
                   this.setState({
                     scores: JSON.parse(resp),
@@ -227,3 +227,5 @@ ReactDOM.render(
   <App/>,
   document.getElementById('react-root')
 );
+
+const rootEndpoint = 'http://http://jlpolrater.y3rqmziwcg.us-west-2.elasticbeanstalk.com/';
