@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import FacebookLogin from 'react-facebook-login';
 import $ from 'jquery';
 
-const rootEndpoint = 'http://jlpolrater.y3rqmziwcg.us-west-2.elasticbeanstalk.com';
 
 class App extends React.Component{
   constructor(props){
@@ -33,6 +32,7 @@ class App extends React.Component{
       contentType: 'application/json',
       data: JSON.stringify(response),
       success: resp => {
+        debugger;
         this.setState({
           user: JSON.parse(resp),
           loading: true
@@ -162,8 +162,7 @@ class App extends React.Component{
                   this.makeRating.bind(this)({
                     winner: this.state.politicianOne,
                     loser: this.state.politicianTwo,
-                    category: this.state.category,
-                    user: this.state.user
+                    category: this.state.category
                   })
                 }
               }
@@ -179,8 +178,7 @@ class App extends React.Component{
                   this.makeRating.bind(this)({
                     winner: this.state.politicianTwo,
                     loser: this.state.politicianOne,
-                    category: this.state.category,
-                    user: this.state.user
+                    category: this.state.category
                   })
                 }
               }

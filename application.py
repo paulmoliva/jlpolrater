@@ -64,12 +64,10 @@ def record_rating():
     request = flask.request.json
     winner_id = request['winner']['id']
     loser_id = request['loser']['id']
-    user_id = request['user']['id']
     category_id = request['category']['id']
     new_rating = rating.Rating()
     new_rating.winner_id = winner_id
     new_rating.loser_id = loser_id
-    new_rating.user_id = user_id
     new_rating.category_id = category_id
     db.session.add(new_rating)
     db.session.commit()

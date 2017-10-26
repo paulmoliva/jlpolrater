@@ -11300,8 +11300,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var rootEndpoint = 'http://jlpolrater.y3rqmziwcg.us-west-2.elasticbeanstalk.com';
-
 var App = function (_React$Component) {
   _inherits(App, _React$Component);
 
@@ -11343,6 +11341,7 @@ var App = function (_React$Component) {
         contentType: 'application/json',
         data: JSON.stringify(response),
         success: function success(resp) {
+          debugger;
           _this3.setState({
             user: JSON.parse(resp),
             loading: true
@@ -11528,8 +11527,7 @@ var App = function (_React$Component) {
                 _this5.makeRating.bind(_this5)({
                   winner: _this5.state.politicianOne,
                   loser: _this5.state.politicianTwo,
-                  category: _this5.state.category,
-                  user: _this5.state.user
+                  category: _this5.state.category
                 });
               },
               src: '' + this.state.politicianOne.image_url })
@@ -11553,8 +11551,7 @@ var App = function (_React$Component) {
                 _this5.makeRating.bind(_this5)({
                   winner: _this5.state.politicianTwo,
                   loser: _this5.state.politicianOne,
-                  category: _this5.state.category,
-                  user: _this5.state.user
+                  category: _this5.state.category
                 });
               },
               src: '' + this.state.politicianTwo.image_url })
