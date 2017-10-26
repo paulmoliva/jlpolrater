@@ -43,7 +43,7 @@ def login():
     return json.dumps(the_user.as_dict())
 
 NUM_POLS = 60
-NUM_CATS = 16
+NUM_CATS = 10
 
 
 @application.route('/requestPair')
