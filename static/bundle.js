@@ -11435,6 +11435,11 @@ var App = function (_React$Component) {
           _react2.default.createElement(
             'select',
             {
+              style: {
+                backgroundColor: 'blue',
+                width: '50%',
+                height: '40px'
+              },
               value: Number(this.state.shownCategory),
               onChange: function onChange(e) {
                 var categoryID = e.target.value;
