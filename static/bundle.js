@@ -11438,7 +11438,8 @@ var App = function (_React$Component) {
               style: {
                 backgroundColor: 'blue',
                 width: '50%',
-                height: '40px'
+                height: '40px',
+                color: 'whitesmoke'
               },
               value: Number(this.state.shownCategory),
               onChange: function onChange(e) {
@@ -11598,7 +11599,7 @@ var App = function (_React$Component) {
                   padding: '7px'
                 }
               },
-              this.state.user ? this.showRater.bind(this)() : this.promptLogin()
+              this.showRater.bind(this)()
             ),
             _react2.default.createElement('div', { className: 'col-md-2' })
           )

@@ -105,7 +105,8 @@ class App extends React.Component{
             style={{
               backgroundColor: 'blue',
               width: '50%',
-              height: '40px'
+              height: '40px',
+              color: 'whitesmoke'
             }}
                   value={Number(this.state.shownCategory)}
                   onChange={e => {
@@ -216,7 +217,7 @@ class App extends React.Component{
                   padding: '7px'
                 }}
               >
-              {this.state.user ? this.showRater.bind(this)() : this.promptLogin()}
+                { this.showRater.bind(this)() }
               </div>
               <div className="col-md-2"></div>
           </div>
