@@ -102,6 +102,11 @@ class App extends React.Component{
             </a>
           </h2>
           <select
+            style={{
+              backgroundColor: 'blue',
+              width: '50%',
+              height: '40px'
+            }}
                   value={Number(this.state.shownCategory)}
                   onChange={e => {
                     const categoryID = e.target.value;
