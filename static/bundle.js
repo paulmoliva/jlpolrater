@@ -11322,7 +11322,7 @@ var App = function (_React$Component) {
       var _this2 = this;
 
       _jquery2.default.ajax({
-        url: rootEndpoint + '/categories',
+        url: '/categories',
         success: function success(resp) {
           _this2.setState({
             categories: JSON.parse(resp)
@@ -11336,7 +11336,7 @@ var App = function (_React$Component) {
       var _this3 = this;
 
       _jquery2.default.ajax({
-        url: rootEndpoint + '/login',
+        url: '/login',
         method: 'POST',
         contentType: 'application/json',
         data: JSON.stringify(response),
@@ -11357,7 +11357,7 @@ var App = function (_React$Component) {
       var _this4 = this;
 
       _jquery2.default.ajax({
-        url: rootEndpoint + '/requestPair',
+        url: '/requestPair',
         success: function success(response) {
           var resp = JSON.parse(response);
           _this4.setState({
@@ -11398,7 +11398,7 @@ var App = function (_React$Component) {
     key: 'makeRating',
     value: function makeRating(rating) {
       _jquery2.default.ajax({
-        url: rootEndpoint + '/rating',
+        url: '/rating',
         method: 'POST',
         contentType: 'application/json',
         data: JSON.stringify(rating)
@@ -11443,7 +11443,7 @@ var App = function (_React$Component) {
                   loading: true
                 });
                 _jquery2.default.ajax({
-                  url: rootEndpoint + '/scores/' + categoryID,
+                  url: '/scores/' + categoryID,
                   success: function success(resp) {
                     _this5.setState({
                       scores: JSON.parse(resp),
@@ -11489,7 +11489,7 @@ var App = function (_React$Component) {
               { href: '#', onClick: function onClick() {
                   _this5.setState({ results: true, loading: true });
                   _jquery2.default.ajax({
-                    url: rootEndpoint + '/scores/' + _this5.state.categories[0].id,
+                    url: '/scores/' + _this5.state.categories[0].id,
                     success: function success(resp) {
                       _this5.setState({
                         scores: JSON.parse(resp),

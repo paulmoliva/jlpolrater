@@ -16,7 +16,7 @@ class App extends React.Component{
 
   componentDidMount(){
     $.ajax({
-      url: rootEndpoint + '/categories',
+      url: '/categories',
       success: resp => {
         this.setState({
           categories: JSON.parse(resp)
@@ -27,7 +27,7 @@ class App extends React.Component{
 
   responseFacebook(response){
     $.ajax({
-      url: rootEndpoint + '/login',
+      url: '/login',
       method: 'POST',
       contentType: 'application/json',
       data: JSON.stringify(response),
@@ -45,7 +45,7 @@ class App extends React.Component{
 
   requestPairToRate(){
     $.ajax({
-      url: rootEndpoint + '/requestPair',
+      url: '/requestPair',
       success: response => {
         const resp = JSON.parse(response);
         this.setState({
@@ -76,7 +76,7 @@ class App extends React.Component{
 
   makeRating(rating){
     $.ajax({
-      url: rootEndpoint + '/rating',
+      url: '/rating',
       method: 'POST',
       contentType: 'application/json',
       data: JSON.stringify(rating)
@@ -110,7 +110,7 @@ class App extends React.Component{
                       loading: true
                     });
                     $.ajax({
-                      url: rootEndpoint + '/scores/' + categoryID,
+                      url: '/scores/' + categoryID,
                       success: resp => {
                         this.setState({
                           scores: JSON.parse(resp),
@@ -140,7 +140,7 @@ class App extends React.Component{
             <a href="#" onClick={() => {
               this.setState({results: true, loading: true});
               $.ajax({
-                url: rootEndpoint + '/scores/' + this.state.categories[0].id,
+                url: '/scores/' + this.state.categories[0].id,
                 success: resp => {
                   this.setState({
                     scores: JSON.parse(resp),
