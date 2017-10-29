@@ -9,7 +9,7 @@ class App extends React.Component{
     super(props);
     this.state = {
       user: null,
-      loading: false,
+      loading: true,
       results: false
     }
   }
@@ -20,7 +20,8 @@ class App extends React.Component{
       success: resp => {
         this.setState({
           categories: JSON.parse(resp)
-        })
+        });
+        this.requestPairToRate();
       }
     })
   }

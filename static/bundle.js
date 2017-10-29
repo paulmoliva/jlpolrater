@@ -11310,7 +11310,7 @@ var App = function (_React$Component) {
 
     _this.state = {
       user: null,
-      loading: false,
+      loading: true,
       results: false
     };
     return _this;
@@ -11327,6 +11327,7 @@ var App = function (_React$Component) {
           _this2.setState({
             categories: JSON.parse(resp)
           });
+          _this2.requestPairToRate();
         }
       });
     }
