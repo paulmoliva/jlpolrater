@@ -32,7 +32,6 @@ class App extends React.Component{
       contentType: 'application/json',
       data: JSON.stringify(response),
       success: resp => {
-        debugger;
         this.setState({
           user: JSON.parse(resp),
           loading: true

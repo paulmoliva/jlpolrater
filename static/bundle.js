@@ -11341,7 +11341,6 @@ var App = function (_React$Component) {
         contentType: 'application/json',
         data: JSON.stringify(response),
         success: function success(resp) {
-          debugger;
           _this3.setState({
             user: JSON.parse(resp),
             loading: true
